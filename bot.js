@@ -32,7 +32,7 @@ client.on('message', message =>{
     if(!message.content.startsWith(prefix) || message.author.bot)
         return;
     let arg = message.content.substring(prefix.length).split(" ");
-    //to get user profile
+    //obtains user mention
     function getUserFromMention(mention){
         if (!mention) return;
     
@@ -49,7 +49,7 @@ client.on('message', message =>{
 
     var string = arg[0];
     var chara = arg[0];
-    if(chara[0] == '!')
+    if(chara[0] == '$')
     {
         string = chara.substring(1).toLowerCase();
         if(string == 'reddit')
@@ -116,7 +116,7 @@ client.on('message', message =>{
 
 
             
-            //etc
+            //Etc
             case 'delete':
             if(message.author.id === "342034424008933396")
             {
@@ -174,5 +174,5 @@ request(options, function(error, response, responseBody) {
 
 }
 
-//client.login(token);
+client.login(token);
 client.login(process.env.token);
