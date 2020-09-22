@@ -15,7 +15,7 @@ for(const file of commandFiles){
     client.commands.set(command.name, command);
 }
 
-//const token = 'NzE4Mzc4NTk3OTM2NTI5NDMx.XtoANA.qVZMcfXZRHmOU2-vGi9E7lWlveo';
+const token = 'NzE4Mzc4NTk3OTM2NTI5NDMx.XtoANA.qVZMcfXZRHmOU2-vGi9E7lWlveo';
 const prefix = '';
 
 client.on('ready', () =>{
@@ -132,7 +132,15 @@ client.on('message', message =>{
                 user = getUserFromMention(arg[1]);
                 if(arg[1] == null) {client.commands.get('profile').execute(message, arg); break}
                 else if (!user) break;
-                else if (user)  client.commands.get('profileMention').execute(message, arg); break;
+                else if (user)  { const embed = new Discord.MessageEmbed()
+                .setColor(0xE74C4C)
+                .setTimestamp()
+                .setTitle('User Information')
+                .addField('User Name', user.username, true)
+                .addField('Server', message.guild, true)
+                .addField('User ID', user.username)
+                .setThumbnail(user.displayAvatarURL())
+                message.channel.send(embed); break; }
 
             case 'send':
                 selectImage = arg[1]; selectImage2 = arg[2]; selectImage3 = arg[3];
@@ -198,5 +206,5 @@ request(options, function(error, response, responseBody) {
 
 }
 
-//client.login(token);
-client.login(process.env.token);
+client.login(token);
+//client.login(process.env.token);
