@@ -15,7 +15,7 @@ for(const file of commandFiles){
     client.commands.set(command.name, command);
 }
 
-//const token = 'NzE4Mzc4NTk3OTM2NTI5NDMx.XtoANA.qVZMcfXZRHmOU2-vGi9E7lWlveo';
+const token = 'NzE4Mzc4NTk3OTM2NTI5NDMx.XtoANA.qVZMcfXZRHmOU2-vGi9E7lWlveo';
 const prefix = '';
 
 client.on('ready', () =>{
@@ -46,7 +46,13 @@ client.on('message', message =>{
             return client.users.cache.get(mention);
         }
     };
+    var command = [];
+    command.push('afterlands');command.push('cubeCost');command.push('denaro');command.push('eGuide');command.push('familiar');
+    command.push('guide');command.push('hmuto');command.push('ia');command.push('Legion');command.push('legionSolver');
+    command.push('lucid');command.push('oz');command.push('Scrapyard');command.push('soul');command.push('trainingGuide')
+    command.push('will');command.push('send');
 
+    commandout = false;
     var string = arg[0];
     var chara = arg[0];
     if(chara[0] == '$')
@@ -67,7 +73,12 @@ client.on('message', message =>{
         }
         else if(message.channel.id != message.guild.channels.cache.find(channel => channel.name == 'bot_spam'))
         {
-            message.channel.send('Please post in ' + message.guild.channels.cache.find(channel => channel.name =='bot_spam').toString());
+            for(var i = 0; i < command.length; i++)
+                if(command[i].toLowerCase() == string)
+                    commandout = true;
+            if(commandout == true)
+                { message.channel.send('Please post in ' + message.guild.channels.cache.find(channel => channel.name =='bot_spam').toString()); return; }
+            else
             return;
         }
 
@@ -114,8 +125,6 @@ client.on('message', message =>{
             case 'will':
                 client.commands.get('willGuide').execute(message, arg); break;
 
-
-            
             //Etc
             case 'delete':
             if(message.author.id === "342034424008933396")
@@ -142,8 +151,8 @@ client.on('message', message =>{
         case 'owo':
             message.channel.send('uwu'); break;
         }
-    }
-        
+    }   
+
 })
 
 function image(message){
@@ -174,5 +183,5 @@ request(options, function(error, response, responseBody) {
 
 }
 
-//client.login(token);
-client.login(process.env.token);
+client.login(token);
+//client.login(process.env.token);
