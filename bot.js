@@ -55,19 +55,19 @@ client.on('message', message =>{
         if(string == 'reddit')
         {
             
-            if(message.channel.id != message.guild.channels.cache.find(channel => channel.name == 'bot-spam') &&
+            if(message.channel.id != message.guild.channels.cache.find(channel => channel.name == 'bot_spam') &&
                 message.channel.id != message.guild.channels.cache.find(channel => channel.name == 'memes') )
                 { message.channel.send('Please post in ' + message.guild.channels.cache.find(channel => channel.name =='memes').toString()
-                    + ' or ' + message.guild.channels.cache.find(channel => channel.name =='bot-spam').toString()); return; }
+                    + ' or ' + message.guild.channels.cache.find(channel => channel.name =='bot_spam').toString()); return; }
             else
                 randomPuppy(arg[1]).then(url => {
                 if(url != null)
                     message.channel.send(url); return;
             })
         }
-        else if(message.channel.id != message.guild.channels.cache.find(channel => channel.name == 'bot-spam'))
+        else if(message.channel.id != message.guild.channels.cache.find(channel => channel.name == 'bot_spam'))
         {
-            message.channel.send('Please post in ' + message.guild.channels.cache.find(channel => channel.name =='bot-spam').toString());
+            message.channel.send('Please post in ' + message.guild.channels.cache.find(channel => channel.name =='bot_spam').toString());
             return;
         }
 
