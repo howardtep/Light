@@ -1,4 +1,4 @@
-const { flip } = require("./Functions/flip");
+const { flip } = require("./functions/flip");
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const ms = require('ms');
@@ -15,7 +15,7 @@ for(const file of commandFiles){
     client.commands.set(command.name, command);
 }
 
-const token = 'NzE4Mzc4NTk3OTM2NTI5NDMx.XtoANA.qVZMcfXZRHmOU2-vGi9E7lWlveo';
+//const token = 'NzE4Mzc4NTk3OTM2NTI5NDMx.XtoANA.qVZMcfXZRHmOU2-vGi9E7lWlveo';
 const prefix = '';
 
 client.on('ready', () =>{
@@ -153,7 +153,7 @@ client.on('message', message =>{
         case 'yoshikage':
             if(arg[1].toLowerCase() === 'kira')
             {
-                const kira = new Discord.MessageAttachment('./Images/Kira.jpg')
+                const kira = new Discord.MessageAttachment('./images/Kira.jpg')
                 const kiraEmbed = {
                 color: (0xE74C4C),
                 title: "Yoshikage Kira",
@@ -198,5 +198,5 @@ request(options, function(error, response, responseBody) {
 
 }
 
-client.login(token);
-//client.login(process.env.token);
+//client.login(token);
+client.login(process.env.token);
