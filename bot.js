@@ -15,7 +15,7 @@ for(const file of commandFiles){
     client.commands.set(command.name, command);
 }
 
-const token = 'NzE4Mzc4NTk3OTM2NTI5NDMx.XtoANA.qVZMcfXZRHmOU2-vGi9E7lWlveo';
+//const token = 'NzE4Mzc4NTk3OTM2NTI5NDMx.XtoANA.qVZMcfXZRHmOU2-vGi9E7lWlveo';
 const prefix = '';
 
 client.on('ready', () =>{
@@ -127,25 +127,9 @@ client.on('message', message =>{
             }
             case 'flip':
                 message.channel.send(flip() + '!'); break;
-
-            case 'profile':
-                user = getUserFromMention(arg[1]);
-                if(arg[1] == null) {client.commands.get('profile').execute(message, arg); break}
-                else if (!user) break;
-                else if (user)  { const embed = new Discord.MessageEmbed()
-                .setColor(0xE74C4C)
-                .setTimestamp()
-                .setTitle('User Information')
-                .addField('User Name', user.username, true)
-                .addField('Server', message.guild, true)
-                .addField('User ID', user.username)
-                .setThumbnail(user.displayAvatarURL())
-                message.channel.send(embed); break; }
-
             case 'send':
                 selectImage = arg[1]; selectImage2 = arg[2]; selectImage3 = arg[3];
                 selectImage4 = arg[4]; selectImage5 = arg[5]; image(message); break;
-
             case 'website':
                 client.commands.get('msWebsite').execute(message, arg); break;
         }
@@ -157,22 +141,6 @@ client.on('message', message =>{
             message.channel.send('owo'); break;
         case 'owo':
             message.channel.send('uwu'); break;
-
-        case 'yoshikage':
-            if(arg[1].toLowerCase() === 'kira')
-            {
-                const kira = new Discord.MessageAttachment('./images/Kira.jpg')
-                const kiraEmbed = {
-                color: (0xE74C4C),
-                title: "Yoshikage Kira",
-                description: "\ My name is Yoshikage Kira. I'm 33 years old. My house is in the northeast section of Morioh, where all the villas are, and I am not married. I work as an employee for the Kame Yu department stores, and I get home every day by 8 PM at the latest. I don't smoke, but I occasionally drink. I'm in bed by 11 PM, and make sure I get eight hours of sleep, no matter what. After having a glass of warm milk and doing about twenty minutes of stretches before going to bed, I usually have no problems sleeping until morning. Just like a baby, I wake up without any fatigue or stress in the morning. I was told there were no issues at my last check-up. I'm trying to explain that I'm a person who wishes to live a very quiet life. I take care not to trouble myself with any enemies, like winning and losing, that would cause me to lose sleep at night. That is how I deal with society, and I know that is what brings me happiness. Although, if I were to fight I wouldn't lose to anyone.",
-                image: {
-                    url: 'attachment://Kira.jpg',
-                },
-            };
-            message.channel.send({ files: [kira], embed: kiraEmbed })
-            }
-            break;
         }
     }
         
@@ -206,5 +174,5 @@ request(options, function(error, response, responseBody) {
 
 }
 
-client.login(token);
-//client.login(process.env.token);
+//client.login(token);
+client.login(process.env.token);
