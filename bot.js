@@ -15,7 +15,6 @@ for(const file of commandFiles){
     client.commands.set(command.name, command);
 }
 
-//const token = 'NzE4Mzc4NTk3OTM2NTI5NDMx.XtoANA.qVZMcfXZRHmOU2-vGi9E7lWlveo';
 const prefix = '';
 
 client.on('ready', () =>{
@@ -183,5 +182,4 @@ request(options, function(error, response, responseBody) {
 
 }
 
-//client.login(token);
 client.login(process.env.token);
